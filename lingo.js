@@ -279,6 +279,9 @@ function lingo(param) {
         Exposing Lingo
     ************************************/
 
+// check for nodeJS
+var hasModule = typeof module !== "undefined" && module.exports;
+
 // CommonJS module is defined
 if (hasModule) {
   module.exports = lingo;
