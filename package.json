@@ -1,0 +1,32 @@
+{
+  "name": "lingojs",
+  "version": "1.0.0",
+  "description": "A javascript library for formatting and manipulating text (strings).",
+  "main": "lingo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarvenLLC/lingojs.git"
+  },
+  "keywords": [
+    "string",
+    "strings",
+    "javascript",
+    "text",
+    "formatting",
+    "manipulating",
+    "js",
+    "numeral",
+    "moment",
+    "voca",
+    "stringify"
+  ],
+  "author": "Adam (BossBele)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LarvenLLC/lingojs/issues"
+  },
+  "homepage": "https://larvenllc.github.io/lingojs"
+}
