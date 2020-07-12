@@ -1,6 +1,6 @@
 /*!
  * lingo.js
- * version : 1.0.0
+ * version : 1.0.1
  * author : Adam (BossBele) Beleko
  * license : MIT
  * https://larven.github.io/lingo-js/
@@ -12,7 +12,7 @@ var Lingo = function (param) {
   string = string.trim();
 
   // Constants
-  const VERSION = "1.0.0",
+  const VERSION = "1.0.1",
     defaultFormat = "sentence";
 
   var formatLingo = (format) => {
