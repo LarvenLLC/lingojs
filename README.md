@@ -27,3 +27,75 @@ Or
 ```js
 const lingo = require("lingojs");
 ```
+
+## Functions
+
+### add
+### value
+### convert
+
+### format
+### sentence
+### pascal
+
+### snake
+### kebab
+
+### slug
+### camel
+
+### title
+
+### reverse
+
+### characters
+
+### words
+
+### count
+
+### countWords
+
+### chunk
+
+### wrap
+
+### initials
+
+### first
+
+### last
+
+### ellipsis
+
+### truncate
+
+### prune
+### decapitalize
+
+### capitalize
+
+### lowerCase
+### upperCase
+### set
+
+##  // from JS
+### toString
+
+### concat
+### toLowerCase
+### toUpperCase
+### substring
+### slice
+
+### substr
+
+### replace
+### valueOf
+### charAt
+
+### indexOf
+
+## Properties
+
+### length
