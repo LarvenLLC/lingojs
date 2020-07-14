@@ -152,25 +152,47 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
 ### wrap
 Function that wraps the string by specified character(s).
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap()
+// (Tanzania, the land of Kilimanjaro and Zanzibar)
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap("{}")
+// {Tanzania, the land of Kilimanjaro and Zanzibar}
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap("''")
+// 'Tanzania, the land of Kilimanjaro and Zanzibar'
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap('""')
+// "Tanzania, the land of Kilimanjaro and Zanzibar"
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap('#')
+// #Tanzania, the land of Kilimanjaro and Zanzibar#
 ```
 
-### initials*
+### initials
 Function that returns the initials of the string.
+
+Accepts separator.
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").initials()
+// T.T.L.O.K.A.Z
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").initials("-")
+// T-T-L-O-K-A-Z
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").initials("")
+// TTLOKAZ
 ```
 
 ### first
 Function that returns the first n characters of the string.
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").first(8)
+// Tanzania
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").first()
+// T
 ```
 
 ### last
 Function that returns the last n characters of the string.
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").last(8)
+// Zanzibar
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").last()
+// r
 ```
 
 ### truncate | prune*
