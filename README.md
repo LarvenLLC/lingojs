@@ -68,31 +68,36 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
 ### format
 Function to format a string into a certain naming convention.
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").format()
+// Tanzania, the land of kilimanjaro and zanzibar
 ```
 
 ### sentence
 Function to format a string into the sentence naming convention (sentence case).
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").sentence()
+// Tanzania, the land of kilimanjaro and zanzibar
 ```
 
 ### pascal
 Function to format a string into the pascal naming convention (pascal case).
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").pascal()
+//
 ```
 
 ### snake
 Function to format a string into the snake naming convention (snake case).
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").snake()
+// tanzania,_the_land_of_kilimanjaro_and_zanzibar
 ```
 
 ### kebab
 Function to format a string into the kebab naming convention (kebab case).
 ```js
 lingo("Tanzania, the land of Kilimanjaro and Zanzibar")
+// tanzania,-the-land-of-kilimanjaro-and-zanzibar
 ```
 
 ### slug
