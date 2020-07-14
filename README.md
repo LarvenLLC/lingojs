@@ -26,6 +26,7 @@ Or
 
 ```js
 const lingo = require("lingojs");
+console.log(lingo("Any Text"))
 ```
 
 ## Functions
