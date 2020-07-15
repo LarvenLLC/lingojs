@@ -55,165 +55,260 @@ var value = myLingo.value();
 
 var myLingo2 = lingo(&quot;With a number 1,000&quot;);
 
-var value2 = myNumeral2.value();
+var value2 = myLingo2.value();
 // With a number 1,000</code>
 </code></pre>
 <h2 id="functions">Functions</h2><h3 id="value">value</h3><p>Function to get the (real, final &amp; primitive) value of the manipulated string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania&quot;).value();
+
 // Tanzania</code>
 </code></pre>
 <h3 id="add">add</h3><p>Function to concatenate strings (add a word/text infront of the string).</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">, the land of Kilimanjaro and Zanzibar</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania&quot;).add(&quot;the land of Kilimanjaro and Zanzibar&quot;);
+
+// Tanzania the land of Kilimanjaro and Zanzibar</code>
 </code></pre>
 <h3 id="convert">convert</h3><p>Function to convert a string from one naming convention to another.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).convert(&quot;sentence&quot;,&quot;kebab&quot;);
+
+// tanzania,-the-land-of-kilimanjaro-and-zanzibar</code>
 </code></pre>
 <h3 id="format">format</h3><p>Function to format a string into a certain naming convention.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).format();
-// Tanzania, the land of kilimanjaro and zanzibar</code>
+
+// Tanzania, the land of kilimanjaro and zanzibar
+
+lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).format(&quot;kebab&quot;);
+
+// tanzania,-the-land-of-kilimanjaro-and-zanzibar</code>
 </code></pre>
 <h3 id="sentence">sentence</h3><p>Function to format a string into the sentence naming convention (sentence case).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).sentence();
+
 // Tanzania, the land of kilimanjaro and zanzibar</code>
 </code></pre>
 <h3 id="pascal">pascal</h3><p>Function to format a string into the pascal naming convention (pascal case).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).pascal();
-//</code>
+
+// Tanzania,TheLandOfKilimanjaroAndZanzibar</code>
 </code></pre>
 <h3 id="snake">snake</h3><p>Function to format a string into the snake naming convention (snake case).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).snake();
+
 // tanzania,_the_land_of_kilimanjaro_and_zanzibar</code>
 </code></pre>
-<h3 id="kebab">kebab</h3><p>Function to format a string into the kebab naming convention (kebab case).</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);
+<h3 id="kebab---slug">kebab | slug</h3><p>Function to format a string into the kebab/slug naming convention (kebab/slug case).</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).kebab();
+/* is same as */
+lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).slug();
+
 // tanzania,-the-land-of-kilimanjaro-and-zanzibar</code>
 </code></pre>
-<h3 id="slug">slug</h3><p>Function to format a string into the slug naming convention (slug case).</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
-</code></pre>
 <h3 id="camel">camel</h3><p>Function to format a string into the camel naming convention (camel case).</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).camel();
+
+// tanzania,TheLandOfKilimanjaroAndZanzibar</code>
 </code></pre>
 <h3 id="title">title</h3><p>Function to format a string into the title naming convention (title case).</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).title();
+
+// Tanzania, The Land Of Kilimanjaro And Zanzibar</code>
 </code></pre>
 <h3 id="reverse">reverse</h3><p>Function to reverse the characters in a string.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).reverse();
+
+// rabiznaZ dna orajnamiliK fo dnal eht ,ainaznaT</code>
 </code></pre>
 <h3 id="characters">characters</h3><p>Function that returns all the characters of a string, separated by commas.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).characters();
+
+// T,a,n,z,a,n,i,a,,,t,h,e,l,a,n,d,o,f,K,i,l,i,m,a,n,j,a,r,o,a,n,d,Z,a,n,z,i,b,a,r</code>
 </code></pre>
 <h3 id="words">words</h3><p>Function that returns all the words of a string, separated by commas.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).words();
+
+// Tanzania,,the,land,of,Kilimanjaro,and,Zanzibar</code>
 </code></pre>
-<h3 id="count">count</h3><p>Function that returns the number of characters in a string.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
-</code></pre>
-<h3 id="countwords">countWords</h3><p>Function that returns the number of words in a string.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
-</code></pre>
-<h3 id="chunk-">chunk*</h3><p>Function that returns the number of characters in a string.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<h3 id="count">count</h3><p>Function that returns the number of characters in a string (minus spaces).</p>
+<ul>
+<li>For full count with spaces use the &apos;length&apos; property
+<code>`</code>js
+lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).count();</li>
+</ul>
+<p>// 40</p>
+<pre><code><code class="source-code prettyprint">
+### countWords
+
+Function that returns the number of words in a string.
+
+```js
+lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);
+
+// 7</code>
+</code></pre><h3 id="chunk">chunk</h3><p>Function that divides a string into segments of equal lengths.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;A89f45eR8dd73Q1T&quot;).chunk();
+
+// A89f-45eR-8dd7-3Q1T
+
+lingo(&quot;A89f45eR8dd73Q1T&quot;).chunk(4, &quot; &quot;);
+
+// A89f 45eR 8dd7 3Q1T
+
+lingo(&quot;A89f45eR8dd73Q1T&quot;).chunk(2, &quot;/&quot;);
+
+// A8/9f/45/eR/8d/d7/3Q/1T</code>
 </code></pre>
 <h3 id="wrap">wrap</h3><p>Function that wraps the string by specified character(s).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).wrap();
+
 // (Tanzania, the land of Kilimanjaro and Zanzibar)
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).wrap(&quot;{}&quot;);
+
 // {Tanzania, the land of Kilimanjaro and Zanzibar}
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).wrap(&quot;&apos;&apos;&quot;);
+
 // &apos;Tanzania, the land of Kilimanjaro and Zanzibar&apos;
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).wrap(&apos;&quot;&quot;&apos;);
+
 // &quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).wrap(&quot;#&quot;);
+
 // #Tanzania, the land of Kilimanjaro and Zanzibar#</code>
 </code></pre>
 <h3 id="initials">initials</h3><p>Function that returns the initials of the string.</p>
 <p>Accepts separator.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).initials();
+
 // T.T.L.O.K.A.Z
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).initials(&quot;-&quot;);
+
 // T-T-L-O-K-A-Z
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).initials(&quot;&quot;);
+
 // TTLOKAZ</code>
 </code></pre>
 <h3 id="first">first</h3><p>Function that returns the first n characters of the string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).first(8);
+
 // Tanzania
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).first();
+
 // T</code>
 </code></pre>
 <h3 id="last">last</h3><p>Function that returns the last n characters of the string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).last(8);
+
 // Zanzibar
+
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).last();
+
 // r</code>
 </code></pre>
-<h3 id="truncate---prune-">truncate | prune*</h3><p>Function that truncates/clips the string to return the first n characters of the string.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<h3 id="truncate---prune">truncate | prune</h3><p>Function that truncates/clips the string to return the first n characters of the string.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).truncate();
+
+// Tanzania,
+
+lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).truncate(3);
+
+// Tanzania, the land</code>
 </code></pre>
-<h3 id="ellipsis-">ellipsis*</h3><p>Function that truncates the string to return the first n characters of the string.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<h3 id="ellipsis">ellipsis</h3><p>Function that truncates the string to return the first n characters of the string with a set of dots (&#x2026;) at the end.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).ellipsis();
+
+// Tanzania,...
+
+lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).ellipsis(3);
+
+// Tanzania, the land...</code>
 </code></pre>
 <h3 id="decapitalize---lowercase">decapitalize | lowerCase</h3><p>Function to convert the whole string to lower case (small letters).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).decapitalize();
 /* is same as */
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).lowerCase();
+
 // tanzania, the land of kilimanjaro and zanzibar</code>
 </code></pre>
 <h3 id="capitalize---uppercase">capitalize | upperCase</h3><p>Function to convert the whole string to upper case (capital letters).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).capitalize();
 /* is same as */
 lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).upperCase();
+
 // TANZANIA, THE LAND OF KILIMANJARO AND ZANZIBAR</code>
 </code></pre>
 <h3 id="set">set</h3><p>Function that overrides the string with a new value.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).set(&quot;Lingo&quot;);
+
+// Lingo</code>
 </code></pre>
 <h2 id="functions-from-javascript-string-methods">Functions from JavaScript String methods</h2><h3 id="tostring">toString</h3><p>Function that extracts parts of a string and returns the extracted parts in a new string.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).toString();
+
+// Tanzania, the land of Kilimanjaro and Zanzibar</code>
+</code></pre>
 <h3 id="concat">concat</h3><p>Function to concatenate strings (add a word/text infront of the string).</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);</code>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).concat(&quot;AAAA&quot;);
+
+// Tanzania, the land of Kilimanjaro and ZanzibarAAAA</code>
 </code></pre>
 <h3 id="tolowercase">toLowerCase</h3><p>Function to convert the whole string to lower case (small letters).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).toLowerCase();
+
 // tanzania, the land of kilimanjaro and zanzibar</code>
 </code></pre>
 <h3 id="touppercase">toUpperCase</h3><p>Function to convert the whole string to upper case (capital letters).</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).toUpperCase();
+
 // TANZANIA, THE LAND OF KILIMANJARO AND ZANZIBAR</code>
 </code></pre>
 <h3 id="substring">substring</h3><p>Function that extracts the characters from a string, between two specified indices, and returns the new sub string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).substring(10, 36);
+
 // the land of Kilimanjaro an</code>
 </code></pre>
 <h3 id="slice">slice</h3><p>Function that extracts parts of a string and returns the extracted parts in a new string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).slice(10, 36);
+
 // the land of Kilimanjaro an</code>
 </code></pre>
 <h3 id="substr">substr</h3><p>Function that extracts parts of a string, beginning at the character at the specified position, and returns the specified number of characters.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).substr(10, 36);
+
 // the land of Kilimanjaro and Zanzibar</code>
 </code></pre>
 <h3 id="replace">replace</h3><p>Function that searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced.</p>
 <p>It currently does not support Regular Expressions (RegEx).
 It is case sensitive.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).replace(&quot;the&quot;, &quot;da&quot;);
+
 // Tanzania, da land of Kilimanjaro and Zanzibar</code>
 </code></pre>
 <h3 id="valueof">valueOf</h3><p>Function to get the (real, final &amp; primitive) value of the manipulated string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).valueOf();
+
 // Tanzania, the land of Kilimanjaro and Zanzibar</code>
 </code></pre>
 <h3 id="charat">charAt</h3><p>Function that returns the character at the specified index in a string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).charAt(22);
+
 // K</code>
 </code></pre>
 <h3 id="indexof">indexOf</h3><p>Function that returns the position of the first occurrence of a specified value in a string.</p>
 <p>It is case-sensitive.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).indexOf(&quot;K&quot;);
+
 // 22</code>
 </code></pre>
 <h2 id="properties">Properties</h2><h3 id="length">length</h3><p>Function to return the number of characters in a string.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).length;
+
 // 46</code>
 </code></pre>
 </div>
