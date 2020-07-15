@@ -107,7 +107,7 @@ Function to format a string into the pascal naming convention (pascal case).
 ```js
 lingo("Tanzania, the land of Kilimanjaro and Zanzibar").pascal();
 
-//
+// Tanzania,TheLandOfKilimanjaroAndZanzibar
 ```
 
 ### snake
@@ -203,12 +203,22 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar");
 // 7
 ```
 
-### chunk\*
+### chunk
 
-Function that returns the number of characters in a string.
+Function that divides a string into segments of equal lengths.
 
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar");
+lingo("A89f45eR8dd73Q1T").chunk();
+
+// A89f-45eR-8dd7-3Q1T
+
+lingo("A89f45eR8dd73Q1T").chunk(4, " ");
+
+// A89f 45eR 8dd7 3Q1T
+
+lingo("A89f45eR8dd73Q1T").chunk(2, "/");
+
+// A8/9f/45/eR/8d/d7/3Q/1T
 ```
 
 ### wrap
@@ -285,24 +295,32 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").last();
 // r
 ```
 
-### truncate | prune*
+### truncate | prune
 
 Function that truncates/clips the string to return the first n characters of the string.
 
 ```js
 lingo("Tanzania, the land of Kilimanjaro and Zanzibar").truncate();
 
-//
+// Tanzania,
+
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").truncate(3);
+
+// Tanzania, the land
 ```
 
-### ellipsis*
+### ellipsis
 
-Function that truncates the string to return the first n characters of the string.
+Function that truncates the string to return the first n characters of the string with a set of dots (…) at the end.
 
 ```js
 lingo("Tanzania, the land of Kilimanjaro and Zanzibar").ellipsis();
 
-//
+// Tanzania,...
+
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").ellipsis(3);
+
+// Tanzania, the land...
 ```
 
 ### decapitalize | lowerCase
