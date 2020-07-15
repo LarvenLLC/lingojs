@@ -137,7 +137,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").slug();
 Function to format a string into the camel naming convention (camel case).
 
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar");
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").camel();
 
 // tanzania,TheLandOfKilimanjaroAndZanzibar
 ```
@@ -147,7 +147,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar");
 Function to format a string into the title naming convention (title case).
 
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar");
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").title();
 
 // Tanzania, The Land Of Kilimanjaro And Zanzibar
 ```
@@ -159,7 +159,7 @@ Function to reverse the characters in a string.
 ```js
 lingo("Tanzania, the land of Kilimanjaro and Zanzibar").reverse();
 
-//
+// rabiznaZ dna orajnamiliK fo dnal eht ,ainaznaT
 ```
 
 ### characters
