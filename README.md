@@ -189,7 +189,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").words();
 
 Function that returns the number of characters in a string (minus spaces).
 
-- For full count with spaces use the 'length' property
+For full count with spaces use the 'length' property
 
 ```js
 lingo("Tanzania, the land of Kilimanjaro and Zanzibar").count();
