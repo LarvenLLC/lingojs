@@ -69,7 +69,10 @@ var value2 = myLingo2.value();
 // Tanzania the land of Kilimanjaro and Zanzibar</code>
 </code></pre>
 <h3 id="convert">convert</h3><p>Function to convert a string from one naming convention to another.</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).convert(&quot;sentence&quot;,&quot;kebab&quot;);
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).convert(
+  &quot;sentence&quot;,
+  &quot;kebab&quot;
+);
 
 // tanzania,-the-land-of-kilimanjaro-and-zanzibar</code>
 </code></pre>
@@ -131,21 +134,18 @@ lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).slug();
 </code></pre>
 <h3 id="count">count</h3><p>Function that returns the number of characters in a string (minus spaces).</p>
 <ul>
-<li>For full count with spaces use the &apos;length&apos; property
-<code>`</code>js
-lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).count();</li>
+<li>For full count with spaces use the &apos;length&apos; property</li>
 </ul>
-<p>// 40</p>
-<pre><code><code class="source-code prettyprint">
-### countWords
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).count();
 
-Function that returns the number of words in a string.
-
-```js
-lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;);
+// 40</code>
+</code></pre>
+<h3 id="countwords">countWords</h3><p>Function that returns the number of words in a string.</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;Tanzania, the land of Kilimanjaro and Zanzibar&quot;).countWords();
 
 // 7</code>
-</code></pre><h3 id="chunk">chunk</h3><p>Function that divides a string into segments of equal lengths.</p>
+</code></pre>
+<h3 id="chunk">chunk</h3><p>Function that divides a string into segments of equal lengths.</p>
 <pre><code class="lang-js"><code class="source-code prettyprint">lingo(&quot;A89f45eR8dd73Q1T&quot;).chunk();
 
 // A89f-45eR-8dd7-3Q1T
