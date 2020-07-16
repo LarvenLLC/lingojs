@@ -28,5 +28,9 @@
   "bugs": {
     "url": "https://github.com/LarvenLLC/lingojs/issues"
   },
-  "homepage": "https://larvenllc.github.io/lingojs"
+  "homepage": "https://larvenllc.github.io/lingojs",
+  "dependencies": {
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0"
+  }
 }

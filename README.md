@@ -71,7 +71,10 @@ lingo("Tanzania").add("the land of Kilimanjaro and Zanzibar");
 Function to convert a string from one naming convention to another.
 
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").convert("sentence","kebab");
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").convert(
+  "sentence",
+  "kebab"
+);
 
 // tanzania,-the-land-of-kilimanjaro-and-zanzibar
 ```
@@ -186,7 +189,8 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").words();
 
 Function that returns the number of characters in a string (minus spaces).
 
-* For full count with spaces use the 'length' property
+- For full count with spaces use the 'length' property
+
 ```js
 lingo("Tanzania, the land of Kilimanjaro and Zanzibar").count();
 
@@ -198,7 +202,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").count();
 Function that returns the number of words in a string.
 
 ```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar");
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").countWords();
 
 // 7
 ```
