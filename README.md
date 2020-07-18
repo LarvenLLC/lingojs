@@ -165,6 +165,16 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").reverse();
 // rabiznaZ dna orajnamiliK fo dnal eht ,ainaznaT
 ```
 
+### reverseWords
+
+Function to reverse the words in a string.
+
+```js
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").reverseWords();
+
+// Zanzibar and Kilimanjaro of land the Tanzania,
+```
+
 ### characters
 
 Function that returns all the characters of a string, separated by commas.

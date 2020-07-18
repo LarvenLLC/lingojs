@@ -160,6 +160,10 @@ var Lingo = function (param) {
     string = [...string].reverse().join("");
     return self;
   };
+  self.reverseWords = function () {
+    string = string.split(" ").reverse().join(" ");
+    return self;
+  };
   self.characters = function () {
     string = string.replace(/\s/g, "").split("").toString();
     return self;
