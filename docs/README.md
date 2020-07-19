@@ -94,6 +94,10 @@ lingo("Tanzania").add("the land of Kilimanjaro and Zanzibar");
 // Tanzania the land of Kilimanjaro and Zanzibar
 ```
 
+| Parameter (Data Type) |   Explanation    |                  Values                  | Default |
+| --------------------- | :--------------: | :--------------------------------------: | :-----: |
+| string (String)       | text to be added | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
+
 ### convert
 
 Function to convert a string from one naming convention to another.
@@ -106,6 +110,11 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").convert(
 
 // tanzania,-the-land-of-kilimanjaro-and-zanzibar
 ```
+
+| Parameter (Data Type) |        Explanation        |                                                 Values                                                  |   Default    |
+| --------------------- | :-----------------------: | :-----------------------------------------------------------------------------------------------------: | :----------: |
+| from (String)         | current naming convention | _ `"sentence"`<br/> _ `"pascal"`<br/> _ `"snake"`<br/> _ `"kebab"`<br/>_ `"camel"`<br/>_ `"title"`<br/> |      ``      |
+| to (String)           | desired naming convention | _ `"sentence"`<br/> _ `"pascal"`<br/> _ `"snake"`<br/> _ `"kebab"`<br/>_ `"camel"`<br/>_ `"title"`<br/> | `"sentence"` |
 
 ### format
 
@@ -120,6 +129,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").format("kebab");
 
 // tanzania,-the-land-of-kilimanjaro-and-zanzibar
 ```
+
+| Parameter (Data Type) |        Explanation        |                                                 Values                                                  |   Default    |
+| --------------------- | :-----------------------: | :-----------------------------------------------------------------------------------------------------: | :----------: |
+| format (String)       | desired naming convention | _ `"sentence"`<br/> _ `"pascal"`<br/> _ `"snake"`<br/> _ `"kebab"`<br/>_ `"camel"`<br/>_ `"title"`<br/> | `"sentence"` |
 
 ### sentence
 
@@ -263,6 +276,11 @@ lingo("A89f45eR8dd73Q1T").chunk(2, "/");
 // A8/9f/45/eR/8d/d7/3Q/1T
 ```
 
+| Parameter (Data Type) |            Explanation             |                 (Sample) Values                 | Default |
+| --------------------- | :--------------------------------: | :---------------------------------------------: | :-----: |
+| length (Number)       |        length of each chunk        |              _ `2`<br/>_ `10`<br/>              |   `4`   |
+| separator (String)    | separator character between chunks | _ `"/"`<br/>_ `"#"`<br/>_ `""`<br/>_ `" "`<br/> |  `"-"`  |
+
 ### wrap
 
 Function that wraps the string by specified character(s).
@@ -289,6 +307,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap("#");
 // #Tanzania, the land of Kilimanjaro and Zanzibar#
 ```
 
+| Parameter (Data Type) |                                        Explanation                                         |                  (Sample) Values                  | Default |
+| --------------------- | :----------------------------------------------------------------------------------------: | :-----------------------------------------------: | :-----: |
+| wrapper (String)      | character(s) to wrap text. max two characters: one at the start and one at the end of text | _ `"/"`<br/>_ `"#"`<br/>_ `"*"`<br/>_ `"{}"`<br/> | `"()"`  |
+
 ### initials
 
 Function that returns the initials of the string.
@@ -309,6 +331,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").initials("");
 // TTLOKAZ
 ```
 
+| Parameter (Data Type) |             Explanation              |                 (Sample) Values                 | Default |
+| --------------------- | :----------------------------------: | :---------------------------------------------: | :-----: |
+| separator (String)    | separator character between initials | _ `"/"`<br/>_ `"-"`<br/>_ `""`<br/>_ `" "`<br/> |  `"."`  |
+
 ### first
 
 Function that returns the first n characters of the string.
@@ -322,6 +348,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").first();
 
 // T
 ```
+
+| Parameter (Data Type) |                          Explanation                           |    (Sample) Values    | Default |
+| --------------------- | :------------------------------------------------------------: | :-------------------: | :-----: |
+| length (Number)       | number of characters from the beginning of text to be returned | _ `2`<br/>_ `10`<br/> |   `1`   |
 
 ### last
 
@@ -337,6 +367,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").last();
 // r
 ```
 
+| Parameter (Data Type) |                       Explanation                        |    (Sample) Values    | Default |
+| --------------------- | :------------------------------------------------------: | :-------------------: | :-----: |
+| length (Number)       | number of characters from the end of text to be returned | _ `2`<br/>_ `10`<br/> |   `1`   |
+
 ### truncate | prune
 
 Function that truncates/clips the string to return the first n characters of the string.
@@ -351,6 +385,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").truncate(3);
 // Tanzania, the land
 ```
 
+| Parameter (Data Type) |                        Explanation                        |    (Sample) Values    | Default |
+| --------------------- | :-------------------------------------------------------: | :-------------------: | :-----: |
+| length (Number)       | number of words from the beginning of text to be returned | _ `2`<br/>_ `10`<br/> |   `1`   |
+
 ### ellipsis
 
 Function that truncates the string to return the first n characters of the string with a set of dots (…) at the end.
@@ -364,6 +402,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").ellipsis(3);
 
 // Tanzania, the land...
 ```
+
+| Parameter (Data Type) |                        Explanation                        |    (Sample) Values    | Default |
+| --------------------- | :-------------------------------------------------------: | :-------------------: | :-----: |
+| length (Number)       | number of words from the beginning of text to be returned | _ `2`<br/>_ `10`<br/> |   `1`   |
 
 ### decapitalize | lowerCase
 
@@ -399,6 +441,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").set("Lingo");
 // Lingo
 ```
 
+| Parameter (Data Type) |         Explanation         |              (Sample) Values               | Default |
+| --------------------- | :-------------------------: | :----------------------------------------: | :-----: |
+| string (String)       | new text to override string | _ `"Lingo"`<br/>_ `"1000 Tanzanians"`<br/> |   ``    |
+
 ## Functions from JavaScript String methods
 
 ### toString
@@ -420,6 +466,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").concat("AAAA");
 
 // Tanzania, the land of Kilimanjaro and ZanzibarAAAA
 ```
+
+| Parameter (Data Type) |   Explanation    |                  Values                  | Default |
+| --------------------- | :--------------: | :--------------------------------------: | :-----: |
+| string (String)       | text to be added | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
 
 ### toLowerCase
 
@@ -451,6 +501,11 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").substring(10, 36);
 // the land of Kilimanjaro an
 ```
 
+| Parameter (Data Type) |                           Explanation                           |        Values         | Default |
+| --------------------- | :-------------------------------------------------------------: | :-------------------: | :-----: |
+| start (Number)        |             position where to start the extraction              | _ `10`<br/>_ `2`<br/> |   `0`   |
+| end (Number)          | position (up to, but not including) where to end the extraction | _ `20`<br/>_ `5`<br/> |   ``    |
+
 ### slice
 
 Function that extracts parts of a string and returns the extracted parts in a new string.
@@ -461,6 +516,11 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").slice(10, 36);
 // the land of Kilimanjaro an
 ```
 
+| Parameter (Data Type) |                           Explanation                           |        Values         | Default |
+| --------------------- | :-------------------------------------------------------------: | :-------------------: | :-----: |
+| start (Number)        |             position where to start the extraction              | _ `10`<br/>_ `2`<br/> |   `0`   |
+| end (Number)          | position (up to, but not including) where to end the extraction | _ `20`<br/>_ `5`<br/> |   ``    |
+
 ### substr
 
 Function that extracts parts of a string, beginning at the character at the specified position, and returns the specified number of characters.
@@ -470,6 +530,11 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").substr(10, 36);
 
 // the land of Kilimanjaro and Zanzibar
 ```
+
+| Parameter (Data Type) |              Explanation               |        Values         | Default |
+| --------------------- | :------------------------------------: | :-------------------: | :-----: |
+| start (Number)        | position where to start the extraction | _ `10`<br/>_ `2`<br/> |   `0`   |
+| end (Number)          |    number of characters to extract     | _ `20`<br/>_ `5`<br/> |   ``    |
 
 ### replace
 
@@ -483,6 +548,11 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").replace("the", "da");
 
 // Tanzania, da land of Kilimanjaro and Zanzibar
 ```
+
+| Parameter (Data Type) |         Explanation         |                  Values                  | Default |
+| --------------------- | :-------------------------: | :--------------------------------------: | :-----: |
+| searchValue (String)  |     text to be replaced     | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
+| newValue (String)     | text to replace searchValue |       _ `"I am"`<br/>_ `"B"`<br/>        |   ``    |
 
 ### valueOf
 
@@ -504,6 +574,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").charAt(22);
 // K
 ```
 
+| Parameter (Data Type) |             Explanation             |    (Sample) Values    | Default |
+| --------------------- | :---------------------------------: | :-------------------: | :-----: |
+| index (Number)        | position of character starting at 0 | _ `2`<br/>_ `10`<br/> |   `0`   |
+
 ### indexOf
 
 Function that returns the position of the first occurrence of a specified value in a string.
@@ -515,6 +589,10 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").indexOf("K");
 
 // 22
 ```
+
+| Parameter (Data Type) |           Explanation           |       (Sample) Values        | Default |
+| --------------------- | :-----------------------------: | :--------------------------: | :-----: |
+| character(s) (String) | character(s) to be searched for | _ `"Great"`<br/>_ `"B"`<br/> |   ``    |
 
 ## Properties
 
