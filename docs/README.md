@@ -4,7 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/lingojs.svg)](https://www.npmjs.com/package/lingojs) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+## Node
+
+### Install
 
 ```bash
 npm install --save lingojs
@@ -16,7 +18,7 @@ Or
 yarn add lingojs
 ```
 
-## Usage
+### Usage
 
 ```jsx
 import lingo from "lingojs";
@@ -27,6 +29,18 @@ Or
 ```js
 const lingo = require("lingojs");
 ```
+
+## CDN
+
+### Install
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/LarvenLLC/lingojs@latest/lingo.min.js"></script>
+```
+
+### Usage
+
+`lingo` is global and accessible. Therefore, it can be used directly after importing the script via CDN. See (CDN Usage Example)[https://codepen.io/BossBele/pen/KKVrGzz].
 
 ## Create
 
@@ -94,7 +108,7 @@ lingo("Tanzania").add("the land of Kilimanjaro and Zanzibar");
 // Tanzania the land of Kilimanjaro and Zanzibar
 ```
 
-| Parameter (Data Type) |   Explanation    |                  Values                  | Default |
+| Parameter (Data Type) |   Explanation    |             (Sample) Values              | Default |
 | --------------------- | :--------------: | :--------------------------------------: | :-----: |
 | string (String)       | text to be added | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
 
@@ -467,7 +481,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").concat("AAAA");
 // Tanzania, the land of Kilimanjaro and ZanzibarAAAA
 ```
 
-| Parameter (Data Type) |   Explanation    |                  Values                  | Default |
+| Parameter (Data Type) |   Explanation    |             (Sample) Values              | Default |
 | --------------------- | :--------------: | :--------------------------------------: | :-----: |
 | string (String)       | text to be added | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
 
@@ -501,7 +515,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").substring(10, 36);
 // the land of Kilimanjaro an
 ```
 
-| Parameter (Data Type) |                           Explanation                           |        Values         | Default |
+| Parameter (Data Type) |                           Explanation                           |    (Sample) Values    | Default |
 | --------------------- | :-------------------------------------------------------------: | :-------------------: | :-----: |
 | start (Number)        |             position where to start the extraction              | _ `10`<br/>_ `2`<br/> |   `0`   |
 | end (Number)          | position (up to, but not including) where to end the extraction | _ `20`<br/>_ `5`<br/> |   ``    |
@@ -516,7 +530,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").slice(10, 36);
 // the land of Kilimanjaro an
 ```
 
-| Parameter (Data Type) |                           Explanation                           |        Values         | Default |
+| Parameter (Data Type) |                           Explanation                           |    (Sample) Values    | Default |
 | --------------------- | :-------------------------------------------------------------: | :-------------------: | :-----: |
 | start (Number)        |             position where to start the extraction              | _ `10`<br/>_ `2`<br/> |   `0`   |
 | end (Number)          | position (up to, but not including) where to end the extraction | _ `20`<br/>_ `5`<br/> |   ``    |
@@ -531,7 +545,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").substr(10, 36);
 // the land of Kilimanjaro and Zanzibar
 ```
 
-| Parameter (Data Type) |              Explanation               |        Values         | Default |
+| Parameter (Data Type) |              Explanation               |    (Sample) Values    | Default |
 | --------------------- | :------------------------------------: | :-------------------: | :-----: |
 | start (Number)        | position where to start the extraction | _ `10`<br/>_ `2`<br/> |   `0`   |
 | end (Number)          |    number of characters to extract     | _ `20`<br/>_ `5`<br/> |   ``    |
@@ -549,7 +563,7 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").replace("the", "da");
 // Tanzania, da land of Kilimanjaro and Zanzibar
 ```
 
-| Parameter (Data Type) |         Explanation         |                  Values                  | Default |
+| Parameter (Data Type) |         Explanation         |             (Sample) Values              | Default |
 | --------------------- | :-------------------------: | :--------------------------------------: | :-----: |
 | searchValue (String)  |     text to be replaced     | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
 | newValue (String)     | text to replace searchValue |       _ `"I am"`<br/>_ `"B"`<br/>        |   ``    |
