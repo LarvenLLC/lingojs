@@ -42,7 +42,7 @@ import lingo from "lingojs"; // ES6 syntax
 
 ## Download
 
-[Download Latest Lingo](https://github.com/LarvenLLC/lingojs/releases/latest/download/lingo.zip)
+[Download Latest Lingo](https://github.com/LarvenLLC/lingojs/releases/latest/download/lingojs.zip)
 
 ```html
 <script src="path-to-/lingo.min.js"></script>
