@@ -1,6 +1,6 @@
 {
   "name": "lingojs",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A javascript library for formatting and manipulating text (strings).",
   "main": "lingo.js",
   "scripts": {
