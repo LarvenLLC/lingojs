@@ -40,7 +40,7 @@ const lingo = require("lingojs");
 
 ### Usage
 
-`lingo` is global and accessible. Therefore, it can be used directly after importing the script via CDN. See (CDN Usage Example)[https://codepen.io/BossBele/pen/KKVrGzz].
+`lingo` is global and accessible. Therefore, it can be used directly after importing the script via CDN. See [CDN Usage Example](https://codepen.io/BossBele/pen/KKVrGzz).
 
 ## Create
 

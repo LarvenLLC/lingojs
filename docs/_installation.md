@@ -32,7 +32,7 @@ import lingo from "lingojs"; // ES6 syntax
 
 ### Exposing lingo
 
-`lingo` is global and accessible (global variable `lingo` is exposed). Therefore, it can be used directly after importing the script via CDN. See (CDN Usage Example)[https://codepen.io/BossBele/pen/KKVrGzz].
+`lingo` is global and accessible (global variable `lingo` is exposed). Therefore, it can be used directly after importing the script via CDN. See [CDN Usage Example](https://codepen.io/BossBele/pen/KKVrGzz).
 
 ```html
 <script>
@@ -42,7 +42,7 @@ import lingo from "lingojs"; // ES6 syntax
 
 ## Download
 
-[Download Latest Lingo](https://github.com/LarvenLLC/lingojs/releases/latest/download/lingojs.zip)
+[Download Latest Lingo](https://github.com/LarvenLLC/lingojs/releases/latest)
 
 ```html
 <script src="path-to-/lingo.min.js"></script>
