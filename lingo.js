@@ -1,6 +1,6 @@
 /*!
  * lingojs
- * version : 1.0.8
+ * version : 1.0.9
  * author : Adam (BossBele) Beleko
  * license : MIT
  * https://larven.github.io/lingojs/
@@ -12,7 +12,7 @@ var Lingo = function (param) {
   string = string.trim();
 
   // Constants
-  const VERSION = "1.0.8",
+  const VERSION = "1.0.9",
     defaultFormat = "sentence";
 
   var formatLingo = (format) => {
@@ -118,6 +118,41 @@ var Lingo = function (param) {
     self.sentence;
   };
 
+  var formatName = (format) => {
+    let tempStr = string.split(" ");
+    string = "";
+    for (var i = 0; i < format.length; i++) {
+      if (format.charAt(i) === "F") {
+        string += tempStr[0];
+        continue;
+      }
+      if (format.charAt(i) === "M") {
+        string += tempStr[1];
+        continue;
+      }
+      if (format.charAt(i) === "S") {
+        string += tempStr[tempStr.length - 1];
+        continue;
+      }
+      if (format.charAt(i) === "f") {
+        string += tempStr[0].match(/\b\w/).join("").toUpperCase();
+        continue;
+      }
+      if (format.charAt(i) === "m") {
+        string += tempStr[1].match(/\b\w/).join("").toUpperCase();
+        continue;
+      }
+      if (format.charAt(i) === "s") {
+        string += tempStr[tempStr.length - 1]
+          .match(/\b\w/)
+          .join("")
+          .toUpperCase();
+        continue;
+      }
+      string += format.charAt(i);
+    }
+  };
+
   self.add = function (str) {
     string += " " + str;
     return self;
@@ -128,49 +163,53 @@ var Lingo = function (param) {
   self.convert = function (from = "", to = "") {
     makeSentence(from);
     formatLingo(to);
-    return self;
+    return string;
   };
   self.format = function (format = defaultFormat) {
     formatLingo(format);
-    return self;
+    return string;
   };
   self.sentence = self.format;
   self.pascal = function () {
     formatLingo("pascal");
-    return self;
+    return string;
   };
   self.snake = function () {
     formatLingo("snake");
-    return self;
+    return string;
   };
   self.kebab = function () {
     formatLingo("kebab");
-    return self;
+    return string;
   };
   self.slug = self.kebab;
   self.camel = function () {
     formatLingo("camel");
-    return self;
+    return string;
   };
   self.title = function () {
     formatLingo("title");
-    return self;
+    return string;
+  };
+  self.name = function (format = "F M S") {
+    formatName(format);
+    return string;
   };
   self.reverse = function () {
     string = [...string].reverse().join("");
-    return self;
+    return string;
   };
   self.reverseWords = function () {
     string = string.split(" ").reverse().join(" ");
-    return self;
+    return string;
   };
   self.characters = function () {
     string = string.replace(/\s/g, "").split("").toString();
-    return self;
+    return string;
   };
   self.words = function () {
     string = string.split(" ").toString();
-    return self;
+    return string;
   };
   self.count = function () {
     return string.replace(/\s/g, "").split("").length;
@@ -182,94 +221,61 @@ var Lingo = function (param) {
     string = string
       .match(new RegExp(".{1," + length + "}", "g"))
       .join(`${separator}`);
-    return self;
+    return string;
   };
   self.wrap = function (wrapper) {
     wrapLingo(wrapper);
-    return self;
+    return string;
   };
+  self.singleQuote = function () {
+    wrapLingo("''");
+    return string;
+  };
+  self.quote = function () {
+    wrapLingo('""');
+    return string;
+  };
+  self.doubleQuote = self.quote;
   self.initials = function (separator = ".") {
     string = string
       .match(/\b(\w)/g)
       .join(separator)
       .toUpperCase();
-    return self;
+    return string;
   };
   self.first = function (index = 1) {
     string = string.substring(0, index);
-    return self;
+    return string;
   };
   self.last = function (index = 1) {
     string = string.substr(-index);
-    return self;
+    return string;
   };
   self.ellipsis = function (index = 1) {
     string = string.split(" ").splice(0, Math.abs(index)).join(" ");
     string += "...";
-    return self;
+    return string;
   };
   self.truncate = function (index = 1) {
     string = string.split(" ").splice(0, Math.abs(index)).join(" ");
-    return self;
+    return string;
   };
   self.prune = self.truncate;
   self.decapitalize = function () {
     string = string.toLowerCase();
-    return self;
+    return string;
   };
   self.capitalize = function () {
     string = string.toUpperCase();
-    return self;
+    return string;
   };
   self.lowerCase = self.decapitalize;
   self.upperCase = self.capitalize;
   self.set = function (value) {
     string = String(value);
-    return self;
-  };
-  // from JS
-  self.toString = function () {
     return string;
   };
-  self.concat = self.add;
-  self.toLowerCase = self.decapitalize;
-  self.toUpperCase = self.capitalize;
-  self.substring = function (start = 0, end = string.length) {
-    string = string.substring(start, Math.abs(end));
-    return self;
-  };
-  self.slice = function (start = 0, end) {
-    if (end) {
-      string = string.slice(start, end);
-    } else {
-      string = string.slice(start);
-    }
-    return self;
-  };
-  self.substr = function (start = 0, end) {
-    if (end) {
-      string = string.substr(start, end);
-    } else {
-      string = string.substr(start);
-    }
-    return self;
-  };
-  self.replace = function (search, str) {
-    try {
-      string = string.replace(search, str);
-    } catch (error) {
-      console.error(error);
-    }
-    return self;
-  };
-  self.valueOf = self.value;
-  self.charAt = function (index = 0) {
-    string = string.charAt(index);
-    return self;
-  };
-  self.indexOf = function (character) {
-    return string.indexOf(character);
-  };
+  // from JS
   self.length = string.length;
 
   return string;
