@@ -219,12 +219,12 @@ lingo("John Doe Nairobi").name("F m.s.");
 // John D.N.
 ```
 
-F - first name
-M - second/middle name
-S - last name
-f - first name initial
-m - second/middle name initial
-s - last name initial
+- F - first name
+- M - second/middle name
+- S - last name
+- f - first name initial
+- m - second/middle name initial
+- s - last name initial
 
 ### reverse
 
