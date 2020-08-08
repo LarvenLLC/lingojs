@@ -58,34 +58,6 @@ var value2 = myLingo2.value();
 // With a number 1,000
 ```
 
-## NOTE
-
-Due to the nature of strings and for your convenience, most of the functions are made chainable. This means that they return the instance of the whole modified object. This can be a problem when lingo is not forced to return text after chaining.
-
-In XML tags, such as HTML, lingo will return text as it is forced to do so.
-
-In other cases however, such as usage in functions, you can do either of the following to ensure that the value returned is a string:
-
-Using value(), valueOf() or toString() functions:
-
-```js
-lingo("Tanzania").add("the land").add("of Kilimanjaro and Zanzibar").value();
-lingo("Tanzania").add("the land").add("of Kilimanjaro and Zanzibar").valueOf();
-lingo("Tanzania").add("the land").add("of Kilimanjaro and Zanzibar").toString();
-```
-
-Wraping the whole instance with the JS String() constructor:
-
-```js
-String(lingo("Tanzania").add("the land").add("of Kilimanjaro and Zanzibar"));
-```
-
-Using the string concatenation operator (+):
-
-```js
-lingo("Tanzania").add("the land").add("of Kilimanjaro and Zanzibar") + "";
-```
-
 ## Functions
 
 ### value
@@ -100,10 +72,17 @@ lingo("Tanzania").value();
 
 ### add
 
-Function to concatenate strings (add a word/text infront of the string).
+Function to concatenate words (add a word with a space infront of the string).
 
 ```js
-lingo("Tanzania").add("the land of Kilimanjaro and Zanzibar");
+lingo("Tanzania")
+  .add("the")
+  .add("land")
+  .add("of")
+  .add("Kilimanjaro")
+  .add("and")
+  .add("Zanzibar")
+  .value();
 
 // Tanzania the land of Kilimanjaro and Zanzibar
 ```
@@ -209,6 +188,43 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").title();
 
 // Tanzania, The Land Of Kilimanjaro And Zanzibar
 ```
+
+### name
+
+Function to format a string into desired human names convention.
+
+```js
+lingo("John Doe Nairobi").name();
+
+// John Doe Nairobi
+
+lingo("John Doe Nairobi").name("fms");
+
+// JDN
+
+lingo("John Doe Nairobi").name("S, F M");
+
+// Nairobi, John Doe
+
+lingo("John Doe Nairobi").name("f.m.s.");
+
+// J.D.N.
+
+lingo("John Doe Nairobi").name("F M");
+
+// John Doe
+
+lingo("John Doe Nairobi").name("F m.s.");
+
+// John D.N.
+```
+
+F - first name
+M - second/middle name
+S - last name
+f - first name initial
+m - second/middle name initial
+s - last name initial
 
 ### reverse
 
@@ -324,6 +340,28 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap("#");
 | Parameter (Data Type) |                                        Explanation                                         |                  (Sample) Values                  | Default |
 | --------------------- | :----------------------------------------------------------------------------------------: | :-----------------------------------------------: | :-----: |
 | wrapper (String)      | character(s) to wrap text. max two characters: one at the start and one at the end of text | _ `"/"`<br/>_ `"#"`<br/>_ `"*"`<br/>_ `"{}"`<br/> | `"()"`  |
+
+### singleQuote
+
+Function that wraps the string by single quotation marks.
+
+```js
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").singleQuote();
+
+// 'Tanzania, the land of Kilimanjaro and Zanzibar'
+```
+
+### quote | doubleQuote
+
+Function that wraps the string by double quotation marks.
+
+```js
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").quote();
+/* is same as */
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").doubleQuote();
+
+// "Tanzania, the land of Kilimanjaro and Zanzibar"
+```
 
 ### initials
 
@@ -458,155 +496,6 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").set("Lingo");
 | Parameter (Data Type) |         Explanation         |              (Sample) Values               | Default |
 | --------------------- | :-------------------------: | :----------------------------------------: | :-----: |
 | string (String)       | new text to override string | _ `"Lingo"`<br/>_ `"1000 Tanzanians"`<br/> |   ``    |
-
-## Functions from JavaScript String methods
-
-### toString
-
-Function that extracts parts of a string and returns the extracted parts in a new string.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").toString();
-
-// Tanzania, the land of Kilimanjaro and Zanzibar
-```
-
-### concat
-
-Function to concatenate strings (add a word/text infront of the string).
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").concat("AAAA");
-
-// Tanzania, the land of Kilimanjaro and ZanzibarAAAA
-```
-
-| Parameter (Data Type) |   Explanation    |             (Sample) Values              | Default |
-| --------------------- | :--------------: | :--------------------------------------: | :-----: |
-| string (String)       | text to be added | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
-
-### toLowerCase
-
-Function to convert the whole string to lower case (small letters).
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").toLowerCase();
-
-// tanzania, the land of kilimanjaro and zanzibar
-```
-
-### toUpperCase
-
-Function to convert the whole string to upper case (capital letters).
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").toUpperCase();
-
-// TANZANIA, THE LAND OF KILIMANJARO AND ZANZIBAR
-```
-
-### substring
-
-Function that extracts the characters from a string, between two specified indices, and returns the new sub string.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").substring(10, 36);
-
-// the land of Kilimanjaro an
-```
-
-| Parameter (Data Type) |                           Explanation                           |    (Sample) Values    | Default |
-| --------------------- | :-------------------------------------------------------------: | :-------------------: | :-----: |
-| start (Number)        |             position where to start the extraction              | _ `10`<br/>_ `2`<br/> |   `0`   |
-| end (Number)          | position (up to, but not including) where to end the extraction | _ `20`<br/>_ `5`<br/> |   ``    |
-
-### slice
-
-Function that extracts parts of a string and returns the extracted parts in a new string.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").slice(10, 36);
-
-// the land of Kilimanjaro an
-```
-
-| Parameter (Data Type) |                           Explanation                           |    (Sample) Values    | Default |
-| --------------------- | :-------------------------------------------------------------: | :-------------------: | :-----: |
-| start (Number)        |             position where to start the extraction              | _ `10`<br/>_ `2`<br/> |   `0`   |
-| end (Number)          | position (up to, but not including) where to end the extraction | _ `20`<br/>_ `5`<br/> |   ``    |
-
-### substr
-
-Function that extracts parts of a string, beginning at the character at the specified position, and returns the specified number of characters.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").substr(10, 36);
-
-// the land of Kilimanjaro and Zanzibar
-```
-
-| Parameter (Data Type) |              Explanation               |    (Sample) Values    | Default |
-| --------------------- | :------------------------------------: | :-------------------: | :-----: |
-| start (Number)        | position where to start the extraction | _ `10`<br/>_ `2`<br/> |   `0`   |
-| end (Number)          |    number of characters to extract     | _ `20`<br/>_ `5`<br/> |   ``    |
-
-### replace
-
-Function that searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced.
-
-It currently does not support Regular Expressions (RegEx).
-It is case sensitive.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").replace("the", "da");
-
-// Tanzania, da land of Kilimanjaro and Zanzibar
-```
-
-| Parameter (Data Type) |         Explanation         |             (Sample) Values              | Default |
-| --------------------- | :-------------------------: | :--------------------------------------: | :-----: |
-| searchValue (String)  |     text to be replaced     | _ `"Tanzania"`<br/>_ `"234^12 USD"`<br/> |   ``    |
-| newValue (String)     | text to replace searchValue |       _ `"I am"`<br/>_ `"B"`<br/>        |   ``    |
-
-### valueOf
-
-Function to get the (real, final & primitive) value of the manipulated string.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").valueOf();
-
-// Tanzania, the land of Kilimanjaro and Zanzibar
-```
-
-### charAt
-
-Function that returns the character at the specified index in a string.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").charAt(22);
-
-// K
-```
-
-| Parameter (Data Type) |             Explanation             |    (Sample) Values    | Default |
-| --------------------- | :---------------------------------: | :-------------------: | :-----: |
-| index (Number)        | position of character starting at 0 | _ `2`<br/>_ `10`<br/> |   `0`   |
-
-### indexOf
-
-Function that returns the position of the first occurrence of a specified value in a string.
-
-It is case-sensitive.
-
-```js
-lingo("Tanzania, the land of Kilimanjaro and Zanzibar").indexOf("K");
-
-// 22
-```
-
-| Parameter (Data Type) |           Explanation           |       (Sample) Values        | Default |
-| --------------------- | :-----------------------------: | :--------------------------: | :-----: |
-| character(s) (String) | character(s) to be searched for | _ `"Great"`<br/>_ `"B"`<br/> |   ``    |
 
 ## Properties
 

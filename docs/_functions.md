@@ -12,10 +12,17 @@ lingo("Tanzania").value();
 
 ### add
 
-Function to concatenate strings (add a word/text infront of the string).
+Function to concatenate words (add a word with a space infront of the string).
 
 ```js
-lingo("Tanzania").add("the land of Kilimanjaro and Zanzibar");
+lingo("Tanzania")
+  .add("the")
+  .add("land")
+  .add("of")
+  .add("Kilimanjaro")
+  .add("and")
+  .add("Zanzibar")
+  .value();
 
 // Tanzania the land of Kilimanjaro and Zanzibar
 ```
@@ -121,6 +128,43 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").title();
 
 // Tanzania, The Land Of Kilimanjaro And Zanzibar
 ```
+
+### name
+
+Function to format a string into desired human names convention.
+
+```js
+lingo("John Doe Nairobi").name();
+
+// John Doe Nairobi
+
+lingo("John Doe Nairobi").name("fms");
+
+// JDN
+
+lingo("John Doe Nairobi").name("S, F M");
+
+// Nairobi, John Doe
+
+lingo("John Doe Nairobi").name("f.m.s.");
+
+// J.D.N.
+
+lingo("John Doe Nairobi").name("F M");
+
+// John Doe
+
+lingo("John Doe Nairobi").name("F m.s.");
+
+// John D.N.
+```
+
+F - first name
+M - second/middle name
+S - last name
+f - first name initial
+m - second/middle name initial
+s - last name initial
 
 ### reverse
 
@@ -236,6 +280,28 @@ lingo("Tanzania, the land of Kilimanjaro and Zanzibar").wrap("#");
 | Parameter (Data Type) |                                        Explanation                                         |                  (Sample) Values                  | Default |
 | --------------------- | :----------------------------------------------------------------------------------------: | :-----------------------------------------------: | :-----: |
 | wrapper (String)      | character(s) to wrap text. max two characters: one at the start and one at the end of text | _ `"/"`<br/>_ `"#"`<br/>_ `"*"`<br/>_ `"{}"`<br/> | `"()"`  |
+
+### singleQuote
+
+Function that wraps the string by single quotation marks.
+
+```js
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").singleQuote();
+
+// 'Tanzania, the land of Kilimanjaro and Zanzibar'
+```
+
+### quote | doubleQuote
+
+Function that wraps the string by double quotation marks.
+
+```js
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").quote();
+/* is same as */
+lingo("Tanzania, the land of Kilimanjaro and Zanzibar").doubleQuote();
+
+// "Tanzania, the land of Kilimanjaro and Zanzibar"
+```
 
 ### initials
 
