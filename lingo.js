@@ -1,6 +1,6 @@
 /*!
  * lingo.js
- * version : 2.0.1
+ * version : 2.0.2
  * author : Adam (BossBele) Beleko
  * license : MIT
  * https://larven.github.io/lingo-js/
@@ -20,7 +20,7 @@
   ************************************/
 
   var lingo,
-    VERSION = "2.0.1";
+    VERSION = "2.0.2";
 
   this.string = "";
 
@@ -40,15 +40,14 @@
   // version number
   lingo.version = VERSION;
 
-  var formatLingo = (format) => {
+  var formatLingo = (format, string) => {
     switch (format) {
       case "sentence":
-        this.string =
-          this.string.split("")[0].toUpperCase() +
-          this.string.substring(1).toLowerCase();
+        string =
+          string.split("")[0].toUpperCase() + string.substring(1).toLowerCase();
         break;
       case "pascal":
-        this.string = this.string
+        string = string
           .split(" ")
           .map(
             (substr) => substr.split("")[0].toUpperCase() + substr.substring(1)
@@ -57,19 +56,19 @@
           .replace(/\,/g, "");
         break;
       case "snake":
-        this.string = this.string.toLowerCase().replace(/\s/g, "_");
+        string = string.toLowerCase().replace(/\s/g, "_");
         break;
       case "kebab":
-        this.string = this.string.toLowerCase().replace(/\s/g, "-");
+        string = string.toLowerCase().replace(/\s/g, "-");
         break;
       case "camel":
-        this.string = this.string
+        string = string
           .toLowerCase()
           .split(" ")
           .map(
             (substr, i) =>
               (i > 0 &&
-                i + 1 < this.string.split(" ").length &&
+                i + 1 < string.split(" ").length &&
                 substr.split("")[0].toUpperCase() + substr.substring(1)) ||
               substr
           )
@@ -77,7 +76,7 @@
           .replace(/\,/g, "");
         break;
       case "title":
-        this.string = this.string
+        string = string
           .toLowerCase()
           .split(" ")
           .map((substr, i) => {
@@ -87,99 +86,99 @@
           .replace(/\,/g, " ");
         break;
       default:
-        this.string =
-          this.string.split("")[0].toUpperCase() +
-          this.string.substring(1).toLowerCase();
+        string =
+          string.split("")[0].toUpperCase() + string.substring(1).toLowerCase();
         break;
     }
+    return string;
   };
 
-  var wrapLingo = (wrapper) => {
+  var wrapLingo = (wrapper, string) => {
     wrapper = (wrapper && String(wrapper)) || "()";
     switch (wrapper) {
       case "()":
-        this.string = `(${this.string})`;
+        string = `(${string})`;
         break;
       case '""':
-        this.string = `"${this.string}"`;
+        string = `"${string}"`;
         break;
       case "''":
-        this.string = `'${this.string}'`;
+        string = `'${string}'`;
         break;
       case "[]":
-        this.string = `[${this.string}]`;
+        string = `[${string}]`;
         break;
       case "{}":
-        this.string = `{${this.string}}`;
+        string = `{${string}}`;
         break;
       case "``":
-        this.string = `\`${this.string}\``;
+        string = `\`${string}\``;
         break;
       default:
-        this.string = `${wrapper[0]}${this.string}${
-          wrapper[wrapper.length - 1]
-        }`;
+        string = `${wrapper[0]}${string}${wrapper[wrapper.length - 1]}`;
         break;
     }
+    return string;
   };
 
-  var makeSentence = (from) => {
+  var makeSentence = (from, string) => {
     switch (from) {
       case "pascal":
-        this.string = this.string.replace(/([A-Z])/g, " $1").toLowerCase();
+        string = string.replace(/([A-Z])/g, " $1").toLowerCase();
         break;
       case "snake":
-        this.string = this.string.toLowerCase().replace(/\_/g, " ");
+        string = string.toLowerCase().replace(/\_/g, " ");
         break;
       case "kebab":
-        this.string = this.string.toLowerCase().replace(/\-/g, " ");
+        string = string.toLowerCase().replace(/\-/g, " ");
         break;
       case "camel":
-        this.string = this.string.replace(/([A-Z])/g, " $1").toLowerCase();
+        string = string.replace(/([A-Z])/g, " $1").toLowerCase();
         break;
       case "title":
-        this.string = this.string.toLowerCase();
+        string = string.toLowerCase();
         break;
       default:
-        this.string = this.string.toLowerCase();
+        string = string.toLowerCase();
         break;
     }
-    this.sentence;
+    return string;
   };
 
-  var formatName = (format) => {
-    let tempStr = this.string.split(" ");
-    this.string = "";
+  var formatName = (format, string) => {
+    let tempStr = string.split(" ");
+    string = "";
     for (var i = 0; i < format.length; i++) {
       if (format.charAt(i) === "F") {
-        this.string += tempStr[0];
+        string += tempStr[0];
         continue;
       }
       if (format.charAt(i) === "M") {
-        this.string += tempStr[1];
+        string += tempStr[1];
         continue;
       }
       if (format.charAt(i) === "S") {
-        this.string += tempStr[tempStr.length - 1];
+        string += tempStr[tempStr.length - 1];
         continue;
       }
       if (format.charAt(i) === "f") {
-        this.string += tempStr[0].match(/\b\w/).join("").toUpperCase();
+        string += tempStr[0].match(/\b\w/).join("").toUpperCase();
         continue;
       }
       if (format.charAt(i) === "m") {
-        this.string += tempStr[1].match(/\b\w/).join("").toUpperCase();
+        string += tempStr[1].match(/\b\w/).join("").toUpperCase();
         continue;
       }
       if (format.charAt(i) === "s") {
-        this.string += tempStr[tempStr.length - 1]
+        string += tempStr[tempStr.length - 1]
           .match(/\b\w/)
           .join("")
           .toUpperCase();
         continue;
       }
-      this.string += format.charAt(i);
+      string += format.charAt(i);
     }
+    return string;
   };
 
   /************************************
@@ -195,38 +194,42 @@
       return this.string;
     },
     convert: function (from = "", to = "") {
-      makeSentence(from);
-      formatLingo(to);
+      this.string = makeSentence(from, this.string);
+      this.string = formatLingo(to, this.string);
       return this.string;
     },
     format: function (format = defaultFormat) {
-      formatLingo(format);
+      this.string = formatLingo(format, this.string);
       return this.string;
     },
-    sentence: this.format,
+    sentence: function () {
+      return this.format();
+    },
     pascal: function () {
-      formatLingo("pascal");
+      this.string = formatLingo("pascal", this.string);
       return this.string;
     },
     snake: function () {
-      formatLingo("snake");
+      this.string = formatLingo("snake", this.string);
       return this.string;
     },
     kebab: function () {
-      formatLingo("kebab");
+      this.string = formatLingo("kebab", this.string);
       return this.string;
     },
-    slug: this.kebab,
+    slug: function () {
+      return this.kebab();
+    },
     camel: function () {
-      formatLingo("camel");
+      this.string = formatLingo("camel", this.string);
       return this.string;
     },
     title: function () {
-      formatLingo("title");
+      this.string = formatLingo("title", this.string);
       return this.string;
     },
     name: function (format = "F M S") {
-      formatName(format);
+      this.string = formatName(format, this.string);
       return this.string;
     },
     reverse: function () {
@@ -258,18 +261,20 @@
       return this.string;
     },
     wrap: function (wrapper) {
-      wrapLingo(wrapper);
+      this.string = wrapLingo(wrapper, this.string);
       return this.string;
     },
     singleQuote: function () {
-      wrapLingo("''");
+      this.string = wrapLingo("''", this.string);
       return this.string;
     },
     quote: function () {
-      wrapLingo('""');
+      this.string = wrapLingo('""', this.string);
       return this.string;
     },
-    doubleQuote: this.quote,
+    doubleQuote: function () {
+      return this.quote();
+    },
     initials: function (separator = ".") {
       this.string = this.string
         .match(/\b(\w)/g)
@@ -294,7 +299,9 @@
       this.string = this.string.split(" ").splice(0, Math.abs(index)).join(" ");
       return this.string;
     },
-    prune: this.truncate,
+    prune: function (index = 1) {
+      return this.truncate(index);
+    },
     decapitalize: function () {
       this.string = this.string.toLowerCase();
       return this.string;
@@ -303,8 +310,12 @@
       this.string = this.string.toUpperCase();
       return this.string;
     },
-    lowerCase: this.decapitalize,
-    upperCase: this.capitalize,
+    lowerCase: function () {
+      return this.decapitalize();
+    },
+    upperCase: function () {
+      return this.capitalize();
+    },
     set: function (value) {
       this.string = String(value);
       return this.string;
