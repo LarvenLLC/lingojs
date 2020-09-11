@@ -1,8 +1,9 @@
 {
   "name": "lingojs",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "A javascript library for formatting and manipulating text (strings).",
   "main": "lingo.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
