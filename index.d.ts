@@ -2,7 +2,6 @@
 // Project: https://github.com/LarvenLLC/lingojs
 
 interface Lingo {
-  (value?: any): Lingo;
   version: string;
 
   add(inputString: string): Lingo;
@@ -40,11 +39,9 @@ interface Lingo {
   set(): string;
 }
 
-declare var lingo: Lingo;
+declare function lingo(value?: any): Lingo;
 
 /**
- * Usage: <code>import * as lingo from 'lingojs'</code>
+ * Usage: <code>import lingo from 'lingojs'</code>
  */
-declare module "lingo" {
-  export = lingo;
-}
+export default lingo;
