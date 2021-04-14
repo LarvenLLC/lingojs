@@ -1,6 +1,6 @@
 /*!
  * lingo.js
- * version : 2.0.2
+ * version : 2.0.6
  * author : Adam (BossBele) Beleko
  * license : MIT
  * https://larven.github.io/lingo-js/
@@ -20,7 +20,7 @@
   ************************************/
 
   var lingo,
-    VERSION = "2.0.2";
+    VERSION = "2.0.6";
 
   this.string = "";
 
@@ -43,17 +43,14 @@
   var formatLingo = (format, string) => {
     switch (format) {
       case "sentence":
-        string =
-          string.split("")[0].toUpperCase() + string.substring(1).toLowerCase();
+        string = string.replace(/(^\s*\w{1}|\.\s*\w{1})/gi, function (match) {
+          return match.toUpperCase();
+        });
         break;
       case "pascal":
-        string = string
-          .split(" ")
-          .map(
-            (substr) => substr.split("")[0].toUpperCase() + substr.substring(1)
-          )
-          .toString()
-          .replace(/\,/g, "");
+        string = string.replace(/(\w)(\w*)/g, function (g0, g1, g2) {
+          return g1.toUpperCase() + g2.toLowerCase();
+        });
         break;
       case "snake":
         string = string.toLowerCase().replace(/\s/g, "_");
@@ -64,30 +61,19 @@
       case "camel":
         string = string
           .toLowerCase()
-          .split(" ")
-          .map(
-            (substr, i) =>
-              (i > 0 &&
-                i + 1 < string.split(" ").length &&
-                substr.split("")[0].toUpperCase() + substr.substring(1)) ||
-              substr
-          )
-          .toString()
-          .replace(/\,/g, "");
+          .replace(/[^a-zA-Z0-9]+(.)/g, function (match, character) {
+            return character.toUpperCase();
+          });
         break;
       case "title":
-        string = string
-          .toLowerCase()
-          .split(" ")
-          .map((substr, i) => {
-            return substr.split("")[0].toUpperCase() + substr.substring(1);
-          })
-          .toString()
-          .replace(/\,/g, " ");
+        string = string.replace(/\w\S*/g, function (match) {
+          return match[0].toUpperCase() + match.substr(1).toLowerCase();
+        });
         break;
       default:
-        string =
-          string.split("")[0].toUpperCase() + string.substring(1).toLowerCase();
+        string = string.replace(/(^\s*\w{1}|\.\s*\w{1})/gi, function (match) {
+          return match.toUpperCase();
+        });
         break;
     }
     return string;
@@ -323,6 +309,5 @@
     // from JS
     length: this.string.length,
   };
-
   return lingo;
 });
