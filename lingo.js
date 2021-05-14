@@ -1,6 +1,6 @@
 /*!
  * lingo.js
- * version : 2.0.6
+ * version : 2.0.7
  * author : Adam (BossBele) Beleko
  * license : MIT
  * https://larven.github.io/lingo-js/
@@ -20,7 +20,8 @@
   ************************************/
 
   var lingo,
-    VERSION = "2.0.6";
+    defaultFormat = "sentence",
+    VERSION = "2.0.7";
 
   this.string = "";
 
